@@ -1,16 +1,16 @@
 version: "3.0"
 services:
-    search-api:
-        container_name: search-api
-        restart: always
-        build: ./backend-api
-        environment:
-            NODE_ENV: production
-            ELASTIC_SEARCH_URI: http://es-container:9200
-        # depends_on:
-        #     - elasticsearch
-        ports:
-            - 4000:4000
+    # search-api:
+    #     container_name: search-api
+    #     restart: always
+    #     build: ./backend-api
+    #     environment:
+    #         NODE_ENV: production
+    #         ELASTIC_SEARCH_URI: http://es-container:9200
+    #     # depends_on:
+    #     #     - elasticsearch
+    #     ports:
+    #         - 4000:4000
     elasticsearch:
         container_name: es-container
         image: docker.elastic.co/elasticsearch/elasticsearch:8.3.2
