@@ -1,16 +1,16 @@
 version: "3.0"
 services:
-    # search-api:
-    #     container_name: search-api
-    #     restart: always
-    #     build: ./backend-api
-    #     environment:
-    #         NODE_ENV: production
-    #         ELASTIC_SEARCH_URI: http://es-container:9200
-    #     # depends_on:
-    #     #     - elasticsearch
-    #     ports:
-    #         - 4000:4000
+    api:
+        container_name: api
+        restart: always
+        build: ./backend-api
+        environment:
+            NODE_ENV: production
+            ELASTIC_SEARCH_URI: http://es-container:9200
+        # depends_on:
+        #     - elasticsearch
+        ports:
+            - 4000:4000
     elasticsearch:
         container_name: es-container
         image: docker.elastic.co/elasticsearch/elasticsearch:8.3.2
@@ -23,17 +23,17 @@ services:
         #     - es-net
         ports:
             - 9200:9200
-    kibana:
-        container_name: kb-container
-        image: docker.elastic.co/kibana/kibana:8.3.2
-        environment:
-            - ELASTICSEARCH_HOSTS=http://es-container:9200
-        # networks:
-        #     - es-net
-        depends_on:
-            - elasticsearch
-        ports:
-            - 5601:5601
+    # kibana:
+    #     container_name: kb-container
+    #     image: docker.elastic.co/kibana/kibana:8.3.2
+    #     environment:
+    #         - ELASTICSEARCH_HOSTS=http://es-container:9200
+    #     # networks:
+    #     #     - es-net
+    #     depends_on:
+    #         - elasticsearch
+    #     ports:
+    #         - 5601:5601
     caddy:
         image: caddy:2-alpine
         restart: unless-stopped

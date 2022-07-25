@@ -1,4 +1,4 @@
 search.callforreferral.com {
-    reverse_proxy /search http://localhose:4000
-    reverse_proxy /dashboard kb-container:5601
+    reverse_proxy /search http://es-container:9200
+    reverse_proxy /api http://api:4000
 }
