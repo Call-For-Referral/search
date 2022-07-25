@@ -1,0 +1,4 @@
+search.callforreferral.com {
+    reverse_proxy /search search-api:4000
+    reverse_proxy /dashboard kb-container:5601
+}
